@@ -1,6 +1,7 @@
 # RoCS server
 
 ## In virutal environment (Webots)
+![](RoCS_ico.jpg)
 
 ### I. Download Webots
 1. Download Webots 2023b from https://www.cyberbotics.com/  
