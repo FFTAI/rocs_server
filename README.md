@@ -3,6 +3,8 @@
 ## In virutal environment (Webots)
 ![](RoCS_ico.jpg)
 
+The Virtual environment needs Ubuntu OS. >= Ubuntu 20 is OK.
+
 ### I. Download Webots
 1. Download Webots 2023b from https://www.cyberbotics.com/  
 2. Save it under `rocs_server/` folder
