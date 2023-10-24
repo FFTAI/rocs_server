@@ -38,27 +38,27 @@ sh install_RoCS.sh
 
 ### IV. Starting the RoCS server
 
-### V. Load Webots model
+### 1. Load Webots model
 1. open Webots
 2. `file` -> `open world` -> `rocs_server/`/bin/webots/webotsim/worlds/SonnyV4.wbt
 
 
-### VI. Starting RoCS server
+### 2. Starting RoCS server
 
 ```shell
 sh start_RoCS_server_sdk.sh
 ```
 
-## Usage - by Remote app.
+## V. Usage - by Remote app.
 
-### I. Download the Remote app. 
+### Download the Remote app. 
 On Windows computer  
 https://github.com/FFTAI/gros_app/releases
 
 Double click to install it.  
 Run it.
 
-## Useage - by gamepad.
+## VI. Useage - by gamepad.
 ### Control by XBox gamepad directly
 
 Connect the gamepad to computer by USB.
@@ -68,7 +68,7 @@ sh start_RoCS_server_jotstick.sh
 ```
 
 
-## Development Documentation  
+## VII. Development Documentation  
 [RoCS platform Doc](http://fftai.github.io/)   
 [Python SDK Doc](https://fftai.github.io/docs/sdk_py/)  
 [javascript SDK Doc](https://fftai.github.io/docs/sdk_js/)  
