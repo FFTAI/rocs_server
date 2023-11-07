@@ -1,5 +1,2 @@
-/lib.zip
-/bin.zip
-/webots_2023b_amd64.deb
-/bin/
-/lib/
+.idea/
+.vscode
