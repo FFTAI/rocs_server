@@ -49,7 +49,7 @@ bash start_up_rocs_svr.sh
 2. `file` -> `open world` -> `～/.rocs_server1.3.0/bin/webots/worlds/SonnyV4.wbt`
 
 ### IV. Control model 
-1. Install [rocs_client](https://pypi.org/project/rocs-client/) SDK for corresponding language 
+1. 安装对应语言的Client SDK: [Python](https://pypi.org/project/rocs-client/)或[JavaScript/TypeScript]().
 2. You can see the corresponding sample code on the introduction page of SDK, and manipulate it through the SDK sample code 
 
 ## Running on real machines 
