@@ -2,6 +2,8 @@
 
 ![](assets/ico.jpg)
 
+[English](./readme.md) | 中文
+
 ## 系统环境
 
 Ubuntu OS. >= 20
@@ -11,11 +13,11 @@ Ubuntu OS. >= 20
 安装ROCS依赖的环境信息和可执行文件(二选一)
 
 ```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install_RoCS.sh | bash
+curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/v1.3.0/install.sh | bash
 ```
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install_RoCS.sh | bash
+wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/v1.3.0/install.sh | bash
 ```
 
 ## 在仿真环境运行 (Webots)
@@ -40,7 +42,7 @@ bash start_up_rocs_svr.sh
 
 ### III. 加载Webots模型
 1. 打开Webots
-2. `file` -> `open world` -> `～/.rocs_server/bin/webots/worlds/SonnyV4.wbt`
+2. `file` -> `open world` -> `～/.rocs_server1.3.0/bin/webots/worlds/SonnyV4.wbt`
 
 ### IV. 控制模型
 1. 安装[rocs_client](https://pypi.org/project/rocs-client/)对应语言的SDK
