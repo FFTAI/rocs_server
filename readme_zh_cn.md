@@ -1,6 +1,10 @@
-# 机器人控制系统
+<p align="center">
+    <a href="https://fftai.github.io" target="_blank" rel="noopener noreferrer">
+        <img width="200" src="assets/ico.jpg" alt="Vue logo">
+    </a>
+</p>
 
-![](assets/ico.jpg)
+# 机器人控制系统
 
 [English](./readme.md) | 中文
 

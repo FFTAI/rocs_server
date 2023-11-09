@@ -1,6 +1,10 @@
-# Robot Control System
+<p align="center">
+    <a href="https://fftai.github.io" target="_blank" rel="noopener noreferrer">
+        <img width="200" src="assets/ico.jpg" alt="Vue logo">
+    </a>
+</p>
 
-![](assets/ico.jpg)
+# Robot Control System
 
 English | [中文](./readme_zh_cn.md)
 
