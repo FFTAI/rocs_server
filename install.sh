@@ -1,7 +1,7 @@
 git clone -b v1.3.0 https://github.com/FFTAI/rocs_server.git ~/.rocs_server1.3.0
 
 cd ~/.rocs_server1.3.0/lib
-sh install_env.sh
+sh install.sh
 
 cd ~/.rocs_server1.3.0
 rm -rf ./bin*
