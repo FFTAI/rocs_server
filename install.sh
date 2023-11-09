@@ -2,7 +2,7 @@
 
 set -e
 
-rocs_server_dir="~/.rocs_server1.3.0"
+rocs_server_dir="rocs_server1.3.0"
 
 # 检查目录是否已存在
 if [ -d "$rocs_server_dir" ]; then
