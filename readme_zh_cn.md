@@ -59,9 +59,9 @@ bash start_up_rocs_svr.sh
 ```markdown
 sbin/
 ├── config/                          
-├──── control_svr.conf        ***** 算法控制程序相关配置（即bin/real可知性文件的路径。如果您的文件与我不同。您需要按需修改）
+├──── control_svr.conf         ***** 算法控制程序相关配置（即bin/real可执行文件文件的路径。如果您的目录与我不同。您需要按需修改）
 ├──── password.conf           ***** 主机密码！脚本需要执行sudo权限的密码在这里统一配置
-├──── wifi.conf               ***** wifi信息，（会将主机作为AP开放一个wifi、客户端连接起wifi进行操控/注意这不是非必须，如果您其他保持同网段通讯的方案可以忽略该设置）
+├──── wifi.conf                    ***** wifi信息，（会将主机作为AP开放一个wifi、客户端连接起wifi进行操控/注意这不是必须的，如果您有其他保持同网段通讯的方案可以忽略该设置）
 ```
 
 ### II. 编译和安装真机运行时环境
