@@ -1,12 +1,6 @@
-<p align="center">
-    <a href="https://fftai.github.io" target="_blank" rel="noopener noreferrer">
-        <img width="200" src="assets/ico.jpg" alt="Vue logo">
-    </a>
-</p>
-
 # 机器人控制系统
 
-[English](./readme.md) | 中文
+![](assets/ico.jpg)
 
 ## 系统环境
 
@@ -17,11 +11,11 @@ Ubuntu OS. >= 20
 安装ROCS依赖的环境信息和可执行文件(二选一)
 
 ```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/v1.3.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install_RoCS.sh | bash
 ```
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/v1.3.0/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install_RoCS.sh | bash
 ```
 
 ## 在仿真环境运行 (Webots)
@@ -46,10 +40,10 @@ bash start_up_rocs_svr.sh
 
 ### III. 加载Webots模型
 1. 打开Webots
-2. `file` -> `open world` -> `～/.rocs_server1.3.0/bin/webots/worlds/SonnyV4.wbt`
+2. `file` -> `open world` -> `～/.rocs_server/bin/webots/worlds/SonnyV4.wbt`
 
 ### IV. 控制模型
-1. 安装对应语言的Client SDK: [Python](https://pypi.org/project/rocs-client/)或[JavaScript/TypeScript]().
+1. 安装对应语言的client SDK: [Python](https://pypi.org/project/rocs-client/) 或 [JavaScript/TypeScript]().
 2. 您可以在sdk的介绍页面看到相应的示例代码，通过SDK示例代码进行操控
 
 ## 在真实机器运行
@@ -59,9 +53,9 @@ bash start_up_rocs_svr.sh
 ```markdown
 sbin/
 ├── config/                          
-├──── control_svr.conf         ***** 算法控制程序相关配置（即bin/real可执行文件文件的路径。如果您的目录与我不同。您需要按需修改）
+├──── control_svr.conf        ***** 算法控制程序相关配置（即bin/real可知性文件的路径。如果您的文件与我不同。您需要按需修改）
 ├──── password.conf           ***** 主机密码！脚本需要执行sudo权限的密码在这里统一配置
-├──── wifi.conf                    ***** wifi信息，（会将主机作为AP开放一个wifi、客户端连接起wifi进行操控/注意这不是必须的，如果您有其他保持同网段通讯的方案可以忽略该设置）
+├──── wifi.conf               ***** wifi信息，（会将主机作为AP开放一个wifi、客户端连接起wifi进行操控/注意这不是非必须，如果您其他保持同网段通讯的方案可以忽略该设置）
 ```
 
 ### II. 编译和安装真机运行时环境
