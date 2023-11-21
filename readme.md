@@ -17,11 +17,11 @@ Ubuntu OS. >= 20
 Install the environment information and executable files that ROCS depends on (choose one of two)
 
 ```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/v1.3.0/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
 ```
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/v1.3.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
 ```
 
 ## Running in a simulation environment (Webots)

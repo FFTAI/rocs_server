@@ -11,11 +11,11 @@ Ubuntu OS. >= 20
 安装ROCS依赖的环境信息和可执行文件(二选一)
 
 ```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install_RoCS.sh | bash
+wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
 ```
 
 ```shell
-wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install_RoCS.sh | bash
+curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
 ```
 
 ## 在仿真环境运行 (Webots)
