@@ -40,13 +40,13 @@ sudo dpkg -i webots_2023b_amd64.deb
 
 ### II. Launch SDK control program 
 ```shell
-cd ~/.rocs_server1.3.0/sbin
+cd ~/.rocs_server/sbin
 bash start_up_rocs_svr.sh
 ```
 
 ### III. Load Webots model 
 1. Open Webots
-2. `file` -> `open world` -> `～/.rocs_server1.3.0/bin/webots/worlds/SonnyV4.wbt`
+2. `file` -> `open world` -> `～/.rocs_server/bin/webots/worlds/SonnyV4.wbt`
 
 ### IV. Control model 
 1. Install Client SDK for corresponding language : [Python](https://pypi.org/project/rocs-client/)或[JavaScript/TypeScript]().
