@@ -58,10 +58,9 @@ bash start_up_rocs_svr.sh
 Firstly, we suggest that you carefully read the sbin readme file and modify the corresponding configuration information (which needs to be modified according to the actual situation)
 ```markdown
 sbin/
-├── config/                          
-├──── control_svr.conf        ***** Algorithm control program related configuration (i.e. the path to the bin/real agnostic file. If your file is different from mine, you need to modify it as needed)
-├──── password.conf           ***** Host password! The script requires the password to execute sudo permissions to be uniformly configured here
-├──── wifi.conf               ***** WiFi information, (the host will be opened as an AP for WiFi, and the client will connect to WiFi for control/note that this is not mandatory. If you have other plans to maintain communication with the network segment, you can ignore this setting)
+├── config/                                     Configuration files
+│ ├── application.conf                               ***** Configuration file, may need modification
+│ ├── human_motor_limit_list.json                    ***** Robot joint limit information
 ```
 
 ### II. Compiling and installing the real machine runtime environment
