@@ -10,7 +10,10 @@ English | [中文](./readme_zh_cn.md)
 
 ## System Environment
 
-Ubuntu OS. >= 20
+* A PC  with at least a 2 GHz dual core CPU clock speed and 2 GB of RAM is a minimum requirement.
+* Operating system: Ubuntu Long Term Support (LTS) releases, including versions 22.04 and 20.04.
+* An NVIDIA or AMD OpenGL (minimum version 3.3) capable graphics adapter with at least 512 MB of RAM is required.
+
 
 ## Quick installation 
 
