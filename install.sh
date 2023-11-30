@@ -13,10 +13,10 @@ sh install.sh
 
 cd ~/.rocs_server
 rm -rf ./bin*
-wget https://github.com/FFTAI/rocs_server/releases/download/v1.3.0/bin.zip
+wget https://github.com/FFTAI/rocs_server/releases/download/v1.3.1/bin.zip
 unzip bin.zip
 
 cd ~/.rocs_server
 rm -rf ./sbin*
-wget https://github.com/FFTAI/rocs_server/releases/download/v1.3.0/sbin.zip
+wget https://github.com/FFTAI/rocs_server/releases/download/v1.3.1/sbin.zip
 unzip sbin.zip
