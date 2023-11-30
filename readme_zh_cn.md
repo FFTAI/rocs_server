@@ -41,7 +41,7 @@ sudo dpkg -i webots_2023b_amd64.deb
 
 ### II. 启动SDK控制程序
 ```shell
-cd ~/.rocs_server1.3.0/sbin
+cd ~/.rocs_server/sbin
 bash start_up_rocs_svr.sh
 ```
 
