@@ -70,8 +70,8 @@ Now you can start your robot experience through our SDK or Android Apk control p
 
 ### Documentation
 [RoCS platform Doc](http://fftai.github.io/)   
-[Python SDK Doc](https://fftai.github.io/docs/sdk_py/)  
-[javascript SDK Doc](https://fftai.github.io/docs/sdk_js/)  
+[Python SDK Doc](https://fftai.github.io/rocs_client_py/index.html)  
+[javascript SDK Doc](https://fftai.github.io/rocs_client_js/index.html)  
 
 ### Control App
 [Fourier GR1.apk](https://github.com/FFTAI/rocs_app/releases/download/v1.1/ROCS-App-1.1.30.apk)
