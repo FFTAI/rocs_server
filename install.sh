@@ -25,7 +25,7 @@ wget -O rocs-control.deb -q --show-progress https://rocs-1302548221.cos.ap-shang
 
 wget -O rocs-wifi.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai.myqcloud.com/hostpot/rocs-wifi_1.0.deb
 
-sudo dpkg -i rocs-libs.deb &&
+sudo dpkg -i rocs-libs.deb 
 
 sudo dpkg -i rocs-svr.deb
 
