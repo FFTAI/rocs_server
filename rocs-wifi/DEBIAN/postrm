@@ -1,0 +1,12 @@
+#!/bin/bash
+
+APP_NAME=rocs-wifi
+SERVICE_FILE=/etc/systemd/system/$APP_NAME.service
+
+systemctl disable $APP_NAME.service
+systemctl stop $APP_NAME.service
+systemctl daemon-reload
+
+rm -rf $SERVICE_FILE
+
+echo "# 0.uninstaller $APP_NAME success!"

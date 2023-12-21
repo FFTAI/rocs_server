@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo '# Install the libraries required by the rocs'
+LIBS_PATH=/usr/local/bin/rocs-libs
+mkdir -p $LIBS_PATH
+
+cp -r eigen $LIBS_PATH/
+cp -r qpOASES $LIBS_PATH/
+cp -r rbdl $LIBS_PATH/
+cp -r install.sh $LIBS_PATH/
+
+sh install.sh

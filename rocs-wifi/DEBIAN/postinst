@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -e
+
+WORK_PATH=/usr/local/bin/rocs-wifi
+mkdir -p $WORK_PATH
+cp -r create_ap $WORK_PATH/
+cp -r enable_wifi.sh $WORK_PATH/
+cp -n wifi.conf $WORK_PATH/
+
+echo '# 1.install create_ap...'
+cd $WORK_PATH/create_ap
+make install
+
+echo '# 2.setup systemctl of rocs-wifi'
+autostart_app=rocs-wifi
+autostart_file=$WORK_PATH/enable_wifi.sh
+service_file=/etc/systemd/system/$autostart_app.service
+
+SYSTEMD_UNIT="[Unit]
+Description=Start $autostart_app at boot
+
+[Service]
+ExecStart=$autostart_file
+WorkingDirectory=$WORK_PATH
+Restart=on-failure
+RestartPreventExitStatus=23
+
+[Install]
+WantedBy=multi-user.target
+"
+
+# 创建 Systemd 单元文件
+echo -e "$SYSTEMD_UNIT" | tee $service_file > /dev/null
+
+chmod 755 $autostart_file
+
+systemctl daemon-reload
+systemctl enable $autostart_app.service
+systemctl stop $autostart_app.service
+systemctl start $autostart_app.service
+
+echo "setup service_file success! you can manage the service using 'systemctl <command> $autostart_app'."

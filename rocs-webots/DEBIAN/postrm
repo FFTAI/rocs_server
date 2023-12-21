@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+APP_NAME=rocs-webots
+
+echo "# 0.uninstaller $APP_NAME success"

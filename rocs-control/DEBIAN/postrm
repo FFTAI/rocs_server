@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+APP_NAME=rocs-control
+echo "# 0.Uninstaller $APP_NAME"

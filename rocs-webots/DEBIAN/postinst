@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+user1=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1; exit}' /etc/passwd)
+
+WORK_PATH=/home/$user1/RoCS/webots
+mkdir -p $WORK_PATH/
+
+echo "# 1.Install Webots Model！ Installation directory: $WORK_PATH"
+cp -r webots/* $WORK_PATH/
+
+chown -R $user1 $WORK_PATH
