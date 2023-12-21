@@ -1,2 +1,10 @@
 .idea/
 .vscode
+
+rocs-libs/*/build
+
+rocs-control/fourier_bin/
+
+rocs-svr/rocs_svr
+
+rocs-webots/webots/
