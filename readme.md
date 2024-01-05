@@ -4,54 +4,23 @@
     </a>
 </p>
 
-# Robot Control System
+# RoCS Server
 
-English | [中文](./readme_zh_cn.md)
+As one of the three main components of RoCS, the server acts as a conduit between the lower computer and upper computer. To establish the RoCS environment to control robot, you'll need to start by installing the server. Following that, you can proceed to install either the SDK or the Control APP, depending on your requirements for interacting with the server and controlling the robot.
 
-## System Environment
+For the use of Client SDK to control robot after installing server, please refer to SDK setup section in [Here](https://github.com/FFTAI/fftai.github.io/blob/main/docs/quick_start/setup_for_physical_robot.md).
 
-* A PC  with at least a 2 GHz dual core CPU clock speed and 2 GB of RAM is a minimum requirement.
-* Operating system: Ubuntu Long Term Support (LTS) releases, including versions 22.04 and 20.04.
-* An NVIDIA or AMD OpenGL (minimum version 3.3) capable graphics adapter with at least 512 MB of RAM is required.
+For the usage of Control APP, please refer to [Remote Control APP Developer Guide](https://github.com/FFTAI/fftai.github.io/blob/main/docs/demo_app/app_project_setup.md)
 
+# Server For Physical Robot
 
-## Quick installation 
+The server is already installed in the embedded robot computer before delivery. To get the server run, you only need to modify the configuration file `application.conf`.
 
-Install the environment information and executable files that ROCS depends on (choose one of two)
+To do this:
 
-```shell
-wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
-```
+1. Connect a monitor to the embedded robot computer via the robot Type C interface.
+2. Navigate to the directory `/user/local/bin/rocs-svr` to access and make the necessary modifications.
 
-```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
-```
-
-## Running in a simulation environment (Webots)
-
-### I. Downloading Webots
-
-1. Execute script for quick installation 
-```shell
-wget https://github.com/cyberbotics/webots/releases/download/R2023b/webots_2023b_amd64.deb
-
-sudo dpkg -i webots_2023b_amd64.deb
-```
-
-2. Alternatively, you can visit [cyberbotics](https://www.cyberbotics.com) Download your preferred desktop distribution from the official website 
-
-### II. Load Webots model 
-1. Open Webots
-2. `file` -> `open world` -> `～/RoCS/webots/worlds/SonnyV4.wbt`
-
-### III. Control model 
-1. Install Client SDK for corresponding language : [Python](https://pypi.org/project/rocs-client/)或[JavaScript/TypeScript](https://www.npmjs.com/package/rocs-client).
-2. You can see the corresponding sample code on the introduction page of SDK, and manipulate it through the SDK sample code 
-
-## Running on real machines 
-
-### I. Modifying Configuration Information 
-Firstly, we suggest that you carefully read the sbin readme file and modify the corresponding configuration information (which needs to be modified according to the actual situation)
 ```markdown
 /usr/local/bin/rocs-svr/
 ├── config/                                     Configuration files
@@ -59,19 +28,151 @@ Firstly, we suggest that you carefully read the sbin readme file and modify the 
 │ ├── human_motor_limit_list.json                    ***** Robot joint limit information
 ```
 
-### II. Power on, start and experience 
+3. Restart the embedded robot computer to make the modifications take effect.
 
-**After completing the above actions, congratulations on completing the installation!**
+**Note**: This operation involves operating the robot. Be sure to familarize yourself with the basic operations through reading the [Operation Instruction](https://github.com/FFTAI/fftai.github.io/blob/main/docs/concepts/operation_instruction.md) section and remember to adhere to safety guidelines and recommendations throughout the process.
 
-Now you can start your robot experience through our SDK or Android Apk control program - Fourier GR1!
+# Server For Simulated Robot
 
+## System Requirements
 
-## Portal
+Before proceeding with the RoCS Server installation, ensure that your system meets the following requirements:
 
-### Documentation
-[RoCS platform Doc](http://fftai.github.io/)   
-[Python SDK Doc](https://fftai.github.io/rocs_client_py/index.html)  
-[javascript SDK Doc](https://fftai.github.io/rocs_client_js/index.html)  
+* A PC with a minimum dual-core CPU clock speed of 2 GHz and 2 GB of RAM.
+* Operating system: Ubuntu Long Term Support (LTS) releases, including versions 22.04 and 20.04.
+* An NVIDIA or AMD OpenGL-capable graphics adapter with a minimum version of 3.3 and at least 512 MB of RAM.
 
-### Control App
-[Fourier GR1.apk](https://github.com/FFTAI/rocs_app/releases/download/v1.1/ROCS-App-1.1.30.apk)
+## Installing RoCS Server Dependencies and Binaries
+
+Use either of the following commands in your terminal to install the server dependencies and RoCS Server binaries:
+
+**Option 1:**
+
+```shell
+wget -qO- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
+```
+
+**Option 2:**
+
+```shell
+curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install.sh | bash
+```
+
+---
+
+## Verifying Installation
+
+To confirm the successful installation of RoCS server packages, open a terminal and run the following command to check if RoCS-related packages are installed:
+
+```shell
+dpkg -l | grep rocs
+```
+
+Following output signifies a successful installation:
+
+```shell
+fftai@fftai-rocs-machine:~$ dpkg -l | grep rocs
+ii  rocs-control   1.3   all     Provides support and functionality for control algorithms relevant to robotics
+ii  rocs-lib          1.0   all     Installs the libraries required by RoCS
+ii  rocs-svr         1.3   all     Provides export call services for robot algorithm programs
+ii  rocs-webots  1.3   all     Provides a Webots simulation environment model
+ii  rocs-wifi        1.0   all      Opens a hotspot for clients to connect to the same network segment as the robot
+fftai@fftai-rocs-machine:~$
+
+```
+
+## Introduciton to Installed Server Packages
+
+### rocs-control
+
+`rocs-control` is the core component of the RoCS system, and we provide a binary file that operates within the '~/RoCS' directory of the embedded robot computer. If you need to fine-tune and customize configuration settings, which may include PID, mass, filtering, and other parameters of the robot, you can achieve this by manually editing the configuration file. This approach allows for precise control of the robot's behavior.
+
+### rocs-lib
+
+`rocs-libs` are the libraries that the RoCS system relies on. It provides essential features to:
+
+* Conduct rigid body dynamics computations, facilitating precise modeling of the robot's physical movements.
+* Tackle quadratic programming (QP) problems efficiently, enabling the robot's control system to address complex optimization tasks.
+* Perform various linear algebra operations, serving as the mathematical foundation for critical robot functionalities.
+
+### rocs-svr
+
+The `rocs-svr` essentially serves as the bridge between the upper computer and the lower computer. It is automatially started as a service during booting. It handles commands originating from the upper computer, which can be a Control APP user interface or SDK control programs. Its primary function is to process these commands and transmit control instructions to the lower computer using underlying communication protocols. This intricate communication mechanism enables the achievement of precise control over the robot's movements.
+
+### rocs-webots
+
+`rocs-webots` is a simulation environment based on Webots, an open source robot simulation application from Cyberbotics. Prior to interacting directly with the robot, we strongly recommend that you gain familiarity with its operation and usage by first experiencing it within the Webots simulation environment. This simulation environment faithfully replicates the motion characteristics and structure of the robot, making it an essential preliminary step. This pacakge is installed only for the simulation environment.
+
+### rocs-wifi
+
+`rocs-wifi` is a crucial component in the RoCS system, responsible for managing and configuring the robot's Wi-Fi connection, including configuring and activating Wi-Fi functionalities. Through this component, it ensures a seamless connection to the Wi-Fi network where the robot is located. It is automatially started as a service during booting.
+
+## Verifying Service Effectiveness
+
+Following two services have been configured for automatic startup during the boot process. After the installation is finished, it's crucial to confirm that these services indeed start automatically as intended.
+
+1. Verify the Status of `rocs-wifi` Service:
+
+```shell
+sudo systemctl status rocs-wifi.service
+```
+
+2. Verify the Status of `rocs-svr` Service:
+
+```shell
+sudo systemctl status rocs-svr.service
+```
+
+## Manual Service Control
+
+In certain situations, you may need to manually start or stop RoCS services. Follow the instructions below to perform these actions:
+
+* Manual start the `rocs-wifi` service:
+
+```shell
+sudo systemctl start rocs-wifi.service
+```
+
+* Manual start the `rocs-svr` service:
+
+```shell
+sudo systemctl start rocs_svr.service
+```
+
+* Manual stop `rocs-wifi` service:
+
+```shell
+sudo systemctl stop rocs-wifi.service
+```
+
+* Manual stop `rocs-svr` service:
+
+```shell
+sudo systemctl stop rocs-svr.service
+```
+
+## View Service Logs
+
+To monitor the logs of RoCS services for troubleshooting or debugging purposes, follow these steps:
+
+* Monitor the log of `rocs-svr`:
+
+```shell
+tail -f /var/log/syslog | grep rocs
+```
+
+* Monitor the log of `rocs-control`:
+
+```shell
+tail -f ~/RoCS/server.log
+```
+
+!> Userful Tip: Open a terminal and run the command `tail -f /var/log/syslog | grep rocs` to monitor the server log in real time. Keeping the terminal window always on top can provide a convenient way to stay updated.
+
+## Loading Webots Model
+
+1. Open a terminal and run the `webots` command to start Webots GUI interface.
+2. Navigate to `File` -> `Open World`.
+3. Select the world file located at `～/RoCS/webots/worlds/SonnyV4.wbt`.
+
+**Note**: If the model cannot be shown, attempt to restore the layout by navigating to Tools -> Restore Layout.
