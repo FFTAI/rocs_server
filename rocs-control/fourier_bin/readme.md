@@ -1,0 +1,1 @@
+Here are stored the binary files and so on under the bin directory.

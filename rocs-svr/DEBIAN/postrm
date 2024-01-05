@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+APP_NAME=rocs-svr
+SERVICE_FILE=/etc/systemd/system/$APP_NAME.service
+WORK_PATH=/usr/local/bin/$APP_NAME/
+
+systemctl disable $APP_NAME.service
+systemctl stop $APP_NAME.service
+systemctl daemon-reload
+
+rm -rf $SERVICE_FILE
+rm -rf $WORK_PATH
+
+echo "# 0.uninstaller $APP_NAME success"

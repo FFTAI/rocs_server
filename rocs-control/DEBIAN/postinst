@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e
+
+version=1.3
+
+user1=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1; exit}' /etc/passwd)
+
+WORK_PATH=/home/$user1/RoCS
+mkdir -p $WORK_PATH/bin
+
+echo "# 1.Install algorithm programs！ Installation directory: $WORK_PATH"
+cp -r start_for_sdk.sh $WORK_PATH/
+cp -r start_for_jotstick.sh $WORK_PATH/
+
+rsync -av --exclude='br' --exclude='MotorList' --exclude='WalkPlan' fourier_bin/* $WORK_PATH/bin/
+
+mkdir -p $WORK_PATH/bin/br
+mkdir -p $WORK_PATH/bin/MotorList
+mkdir -p $WORK_PATH/bin/WalkPlan
+
+rsync -av --ignore-existing fourier_bin/br/* $WORK_PATH/bin/br/
+rsync -av --ignore-existing fourier_bin/MotorList/* $WORK_PATH/bin/MotorList/
+rsync -av --ignore-existing fourier_bin/WalkPlan/* $WORK_PATH/bin/WalkPlan/
+
+echo "# 2.Backup algorithm programs！ $WORK_PATH/bak/$version/"
+mkdir -p $WORK_PATH/bak/$version/
+cp -r fourier_bin/* $WORK_PATH/bak/$version/
+
+chown -R $user1 $WORK_PATH

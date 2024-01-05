@@ -1,0 +1,262 @@
+[
+  {
+    "no": "0",
+    "orientation": "pitch",
+    "name": "Head",
+    "ip": "192.168.137.95",
+    "max_angle": 15,
+    "min_angle": -15
+  },
+  {
+    "no": "0",
+    "orientation": "roll",
+    "name": "Head",
+    "ip": "192.168.137.94",
+    "max_angle": 15,
+    "min_angle": -15
+  },
+  {
+    "no": "0",
+    "orientation": "yaw",
+    "name": "Head",
+    "ip": "192.168.137.93",
+    "max_angle": 90,
+    "min_angle": -90
+  },
+  {
+    "no": "1",
+    "orientation": "left",
+    "ip": "192.168.137.10",
+    "max_angle": 150,
+    "min_angle": -60,
+    "remark": "Left Joint 1, positive for forward, negative for backward"
+  },
+  {
+    "no": "1",
+    "orientation": "right",
+    "ip": "192.168.137.30",
+    "max_angle": 60,
+    "min_angle": -150,
+    "remark": "Right Joint 1, negative for forward, positive for backward"
+  },
+  {
+    "no": "2",
+    "orientation": "left",
+    "ip": "192.168.137.11",
+    "max_angle": 0,
+    "min_angle": -150,
+    "remark": "Left Joint 2, negative for outward"
+  },
+  {
+    "no": "2",
+    "orientation": "right",
+    "ip": "192.168.137.31",
+    "max_angle": 150,
+    "min_angle": 0,
+    "remark": "Right Joint 2, positive for outward"
+  },
+  {
+    "no": "3",
+    "orientation": "left",
+    "ip": "192.168.137.12",
+    "max_angle": 90,
+    "min_angle": -90,
+    "remark": "Left Joint 3, positive for outward, negative for inward"
+  },
+  {
+    "no": "3",
+    "orientation": "right",
+    "ip": "192.168.137.32",
+    "max_angle": 90,
+    "min_angle": -90,
+    "remark": "Right Joint 3, positive for inward, negative for outward"
+  },
+  {
+    "no": "4",
+    "orientation": "left",
+    "ip": "192.168.137.13",
+    "max_angle": 90,
+    "min_angle": 0,
+    "remark": "Left Joint 4, positive for forward"
+  },
+  {
+    "no": "4",
+    "orientation": "right",
+    "ip": "192.168.137.33",
+    "max_angle": 0,
+    "min_angle": -90,
+    "remark": "Left Joint 4, negative for forward"
+  },
+  {
+    "no": "5",
+    "orientation": "left",
+    "ip": "192.168.137.14",
+    "max_angle": 21,
+    "min_angle": -21,
+    "remark": "Left Joint 5, positive for outward, negative for inward"
+  },
+  {
+    "no": "5",
+    "orientation": "right",
+    "ip": "192.168.137.34",
+    "max_angle": 21,
+    "min_angle": -21,
+    "remark": "Right Joint 5, positive for inward, negative for outward"
+  },
+  {
+    "no": "6",
+    "orientation": "left",
+    "ip": "192.168.137.15",
+    "max_angle": 21,
+    "min_angle": -21,
+    "remark": "Left Joint 6, negative for forward, positive for backward"
+  },
+  {
+    "no": "6",
+    "orientation": "right",
+    "ip": "192.168.137.35",
+    "max_angle": 21,
+    "min_angle": -21,
+    "remark": "Right Joint 6, positive for forward, negative for backward"
+  },
+  {
+    "no": "7",
+    "orientation": "left",
+    "ip": "192.168.137.16",
+    "max_angle": 21,
+    "min_angle": -21,
+    "remark": "Left Joint 7, positive for outward, negative for inward"
+  },
+  {
+    "no": "7",
+    "orientation": "right",
+    "ip": "192.168.137.36",
+    "max_angle": 21,
+    "min_angle": -21,
+    "remark": "Right Joint 7, positive for forward, negative for backward"
+  },
+  {
+    "no": "8",
+    "orientation": "left",
+    "ip": "192.168.137.17",
+    "max_angle": 60,
+    "min_angle": 0,
+    "remark": "Left Joint 8, positive for open"
+  },
+  {
+    "no": "8",
+    "orientation": "right",
+    "ip": "192.168.137.37",
+    "max_angle": 60,
+    "min_angle": 0,
+    "remark": "Right Joint 8, positive for open"
+  },
+  {
+    "no": "9",
+    "orientation": "left",
+    "name": "thumb_bending",
+    "max_angle": 1000,
+    "default": 1000,
+    "min_angle": 0,
+    "remark": "Left Joint 6, negative for forward, positive for backward"
+  },
+  {
+    "no": "9",
+    "orientation": "right",
+    "name": "thumb_bending",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default": -1,
+    "remark": "Right Joint 6, positive for forward, negative for backward"
+  },
+  {
+    "no": "10",
+    "orientation": "left",
+    "name": "thumb_rotation",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default": -1,
+    "remark": "Left Joint 1, positive for forward, negative for backward"
+  },
+  {
+    "no": "10",
+    "orientation": "right",
+    "name": "thumb_rotation",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default": -1,
+    "remark": "Right Joint 1, negative for forward, positive for backward"
+  },
+  {
+    "no": "11",
+    "orientation": "left",
+    "name": "index",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default": -1,
+    "remark": "Left Joint 2, negative for outward"
+  },
+  {
+    "no": "11",
+    "orientation": "right",
+    "name": "index",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default": -1,
+    "remark": "Right Joint 2, positive for outward"
+  },
+  {
+    "no": "12",
+    "orientation": "left",
+    "name": "middle",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default_angle": -1,
+    "remark": "Left Joint 3, positive for outward, negative for inward"
+  },
+  {
+    "no": "12",
+    "orientation": "right",
+    "name": "middle",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default_angle": -1,
+    "remark": "Right Joint 3, positive for inward, negative for outward"
+  },
+  {
+    "no": "13",
+    "orientation": "left",
+    "name": "ring",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default_angle": -1,
+    "remark": "Left Joint 4, positive for forward"
+  },
+  {
+    "no": "13",
+    "orientation": "right",
+    "name": "ring",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default_angle": -1,
+    "remark": "Left Joint 4, negative for forward"
+  },
+  {
+    "no": "14",
+    "orientation": "left",
+    "name": "pinky",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default_angle": -1,
+    "remark": "Left Joint 5, positive for outward, negative for inward"
+  },
+  {
+    "no": "14",
+    "orientation": "right",
+    "name": "pinky",
+    "max_angle": 1000,
+    "min_angle": 0,
+    "default_angle": -1,
+    "remark": "Right Joint 5, positive for inward, negative for outward"
+  }
+]

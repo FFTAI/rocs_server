@@ -1,5 +1,12 @@
-/lib.zip
-/bin.zip
-/webots_2023b_amd64.deb
-/bin/
-/lib/
+.idea/
+.vscode
+
+rocs-libs/*/build
+
+rocs-control/fourier_bin/
+!rocs-control/fourier_bin/readme.md
+
+rocs-svr/rocs_svr
+
+rocs-webots/webots/
+!rocs-webots/webots/readme.md
