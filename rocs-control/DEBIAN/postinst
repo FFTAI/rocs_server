@@ -11,7 +11,7 @@ mkdir -p $WORK_PATH/bin
 
 echo "# 1.Install algorithm programs！ Installation directory: $WORK_PATH"
 cp -r start_for_sdk.sh $WORK_PATH/
-cp -r start_for_jotstick.sh $WORK_PATH/
+cp -r start_for_joystick.sh $WORK_PATH/
 
 rsync -av --exclude='br' --exclude='MotorList' --exclude='WalkPlan' fourier_bin/* $WORK_PATH/bin/
 
