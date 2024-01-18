@@ -14,8 +14,8 @@ sudo apt install libunittest++-dev -y
 sudo apt install qtbase5-dev -y
 sudo apt install tmux -y
 sudo apt install wget -y
-sudo apt install liburdfdom-dev
-sudo apt install libtinyxml2-dev
+sudo apt install liburdfdom-dev -y 
+sudo apt install libtinyxml2-dev -y
 
 wget -O rocs-libs.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai.myqcloud.com/libs/rocs-libs_1.0.deb
 
