@@ -21,8 +21,6 @@ wget -O rocs-libs.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai
 
 wget -O rocs-svr.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai.myqcloud.com/server/rocs-svr_v2.0.8.deb
 
-wget -O rocs-webots.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai.myqcloud.com/webots/rocs-webots_1.3.deb
-
 wget -O rocs-control.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai.myqcloud.com/control/rocs-control_1.3.deb
 
 wget -O rocs-wifi.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai.myqcloud.com/hostpot/rocs-wifi_1.0.deb
@@ -30,8 +28,6 @@ wget -O rocs-wifi.deb -q --show-progress https://rocs-1302548221.cos.ap-shanghai
 sudo dpkg -i rocs-libs.deb 
 
 sudo dpkg -i rocs-svr.deb
-
-sudo dpkg -i rocs-webots.deb
 
 sudo dpkg -i rocs-control.deb
 
