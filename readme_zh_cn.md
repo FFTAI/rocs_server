@@ -18,105 +18,107 @@
 **我们对RoCS机器人控制系统进行封装了5个deb的安装包，分别为:** 
 
 ### rocs-lib
-
-`rocs-libs` are the libraries that the RoCS system relies on. It provides essential features to:
-
-* Conduct rigid body dynamics computations, facilitating precise modeling of the robot's physical movements.
-* Tackle quadratic programming (QP) problems efficiently, enabling the robot's control system to address complex optimization tasks.
-* Perform various linear algebra operations, serving as the mathematical foundation for critical robot functionalities.
+`rocs-libs` 是RoCS系统依赖的库，包含所有运行时所需要的环境依赖
 
 ### rocs-svr
-
-The `rocs-svr` essentially serves as the bridge between the upper computer and the lower computer. It is automatially started as a service during booting. It handles commands originating from the upper computer, which can be a Control APP user interface or SDK control programs. Its primary function is to process these commands and transmit control instructions to the lower computer using underlying communication protocols. This intricate communication mechanism enables the achievement of precise control over the robot's movements.
+`rocs-svr` 本质上是作为上位机和下位机之间的桥梁。它在引导期间作为服务自动启动。它处理来自上位机的命令，上位机可以是控制APP用户界面或SDK控制程序。它的主要功能是处理这些命令，并使用底层通信协议将控制指令传输到下位机。这种复杂的通信机制可以实现对机器人运动的精确控制。
 
 ### rocs-wifi
-
-`rocs-wifi` is a crucial component in the RoCS system, responsible for managing and configuring the robot's Wi-Fi connection, including configuring and activating Wi-Fi functionalities. Through this component, it ensures a seamless connection to the Wi-Fi network where the robot is located. It is automatially started as a service during booting.
+`rocs-wifi` 是RoCS系统中的重要组件，负责管理和配置机器人的Wi-Fi连接，包括配置和激活Wi-Fi功能。通过该组件，可以确保与机器人所在Wi-Fi网络的无缝连接。它在引导期间作为服务自动启动
 
 ### rocs-webots
-
-`rocs-webots` is a simulation environment based on Webots, an open source robot simulation application from Cyberbotics. Prior to interacting directly with the robot, we strongly recommend that you gain familiarity with its operation and usage by first experiencing it within the Webots simulation environment. This simulation environment faithfully replicates the motion characteristics and structure of the robot, making it an essential preliminary step. This pacakge is installed only for the simulation environment.
+`rocs-webots` 是基于 Webots 的仿真环境，Webots 是 `Cyberbotics` 的开源机器人仿真应用程序。在直接与机器人交互之前，我们强烈建议您首先在 Webots 模拟环境中体验它，以熟悉其操作和使用。该模拟环境忠实地复制了机器人的运动特性和结构，使其成为重要的预备步骤。该软件包仅针对模拟环境安装
 
 ### rocs-control
+`rocs-control` 是RoCS系统的核心组件，我们提供了一个在嵌入式机器人计算机的“~/RoCS”目录中运行的二进制文件。如果您需要微调和自定义配置设置，其中可能包括机器人的PID、质量、过滤和其他参数，您可以通过手动编辑配置文件来实现。这种方法可以精确控制机器人的行为
 
-`rocs-control` is the core component of the RoCS system, and we provide a binary file that operates within the '~/RoCS' directory of the embedded robot computer. If you need to fine-tune and customize configuration settings, which may include PID, mass, filtering, and other parameters of the robot, you can achieve this by manually editing the configuration file. This approach allows for precise control of the robot's behavior.
+# 快速安装
 
-
-# 系统环境
+## 系统要求
 
 在安装RoCS Server之前，请确保您的系统满足以下要求:
 
 * 具有最低2 GHz双核CPU时钟速度和2 GB RAM的PC。
-* 操作系统:Ubuntu长期支持(LTS)版本，包括22.04和20.04版本。
+* 操作系统:Ubuntu(amd64)长期支持(LTS)版本，包括22.04和20.04版本。
 * NVIDIA或AMD支持opengl的图形适配器，最低版本为3.3，内存至少为512 MB。
 
-# 快速安装
+## 一键安装
 
-对于机器人控制系统我们提供了两套运行时环境和二进制文件，分别为： 
+**对于机器人控制系统我们提供了两套运行时环境和二进制文件的快速安装脚本，分别为：** 
 
-1. 基于物理机器人
-2. 基于webots仿真环境
+1. 仿真环境(基于webots)
+    ```shell
+    curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install-simulated.sh | bash
+    ```
+   
+2. 基于物理机器人(GR-1)
 
-## 物理环境
-```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install-physical.sh | bash
-```
-
-## 仿真环境
-```shell
-curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install-simulated.sh | bash
-```
+    ```shell
+    curl -o- https://raw.githubusercontent.com/FFTAI/rocs_server/main/install-physical.sh | bash
+    ```
 
 ## 检查有效性
 
-`rocs-svr` services have been configured for automatic startup during the boot process. After the installation is finished, it's crucial to confirm that these services indeed start automatically as intended.
+要确认 RoCS 服务器软件包安装成功，请打开终端并运行以下命令检查是否安装了 RoCS 相关软件包
 
+### 仿真环境
 ```shell
-sudo systemctl status rocs-svr.service
+fftai@fftai-rocs-machine:~$ dpkg -l | grep rocs
+ii  rocs-lib            1.0   all     Installs the libraries required by RoCS
+ii  rocs-svr            1.3   all     Provides export call services for robot algorithm programs
+ii  rocs-webots         1.3   all     Provides a Webots simulation environment model
 ```
 
-## Manual Service Control
+### 物理环境
+```shell
+fftai@gr123ot0001:~$ dpkg -l | grep rocs
+ii  rocs-lib            1.0   all     Installs the libraries required by RoCS
+ii  rocs-svr            1.3   all     Provides export call services for robot algorithm programs
+ii  rocs-wifi           1.0   all     
+ii  rocs-control        1.4   all     
+```
 
-In certain situations, you may need to manually start or stop RoCS services. Follow the instructions below to perform these actions:
+## 手动控制服务
 
-* Manual start the `rocs-svr` service:
+在某些情况下，您可能需要手动启动或停止 RoCS 服务。请按照以下说明执行这些操作
+
+* 手动启动 `rocs-svr` 服务:
 
 ```shell
 sudo systemctl start rocs_svr.service
 ```
 
-* Manual stop `rocs-svr` service:
+* 手动停止 `rocs-svr` 服务:
 
 ```shell
 sudo systemctl stop rocs-svr.service
 ```
 
-## View Service Logs
+## 查看日志
 
-To monitor the logs of RoCS services for troubleshooting or debugging purposes, follow these steps:
+要监控 RoCS 服务日志以进行故障排除或调试，请执行以下步骤：
 
-* Monitor the log of `rocs-svr`:
+* 监控 `rocs-svr` 日志:
 
 ```shell
 tail -f /var/log/syslog | grep rocs
 ```
 
-!> Userful Tip: Open a terminal and run the command `tail -f /var/log/syslog | grep rocs` to monitor the server log in real time. Keeping the terminal window always on top can provide a convenient way to stay updated.
+!> 用户提示：打开终端并运行命令 `tail -f /var/log/syslog | grep rocs` 实时监控服务器日志。使终端窗口始终位于顶部可以提供一种方便的方式来保持更新。
 
 
-
-# 上手使用
+# 快速使用
 
 ## 在仿真环境运行 (Webots)
 
 ### I. 下载Webots
 
 1. 执行脚本快速安装
-```shell
-wget https://github.com/cyberbotics/webots/releases/download/R2023b/webots_2023b_amd64.deb
-
-sudo dpkg -i webots_2023b_amd64.deb
-```
+   ```shell
+   wget https://github.com/cyberbotics/webots/releases/download/R2023b/webots_2023b_amd64.deb
+   
+   sudo dpkg -i webots_2023b_amd64.deb
+   ```
 
 2. 或者您也可以访问[cyberbotics](https://www.cyberbotics.com/)官网网站下载您偏好的桌面发行版 
 
@@ -125,7 +127,7 @@ sudo dpkg -i webots_2023b_amd64.deb
 2. `file` -> `open world` -> `～/RoCS/webots/worlds/SonnyV4.wbt`
 
 ### III. 控制模型
-1. 安装对应语言的client SDK: [Python](https://pypi.org/project/rocs-client/) 或 [JavaScript/TypeScript]().
+1. 安装对应语言的client SDK: [Python](https://pypi.org/project/rocs-client/) 或 [JavaScript/TypeScript](https://www.npmjs.com/package/rocs-client).
 2. 您可以在sdk的介绍页面看到相应的示例代码，通过SDK示例代码进行操控
 
 ## 在真实机器运行
@@ -136,9 +138,9 @@ sudo dpkg -i webots_2023b_amd64.deb
 ## 传送门
 
 ### 文档说明
-[RoCS platform Doc](http://fftai.github.io/)   
-[Python SDK Doc](https://fftai.github.io/docs/sdk_py/)  
-[javascript SDK Doc](https://fftai.github.io/docs/sdk_js/)  
+[RoCS 官方站点](http://fftai.github.io/)   
+[Python SDK 文档](https://fftai.github.io/docs/sdk_py/)  
+[Javascript SDK 文档](https://fftai.github.io/docs/sdk_js/)  
 
 ### 控制App
 [Fourier GR1.apk](https://github.com/FFTAI/rocs_app/releases/download/v1.1/ROCS-App-1.1.30.apk)
