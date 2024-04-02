@@ -1,7 +1,7 @@
 Package: rocs-control
-version: 1.4.0.0
+Version: 1.4.0
 Section: custom
 Priority: optional
-Architecture: all
+Architecture: amd64
 Maintainer: Jax <ming.li@fftai.com>
 Description: Provide support and functionality for control algorithms relevant to robotics

@@ -1,8 +1,8 @@
 Package: rocs-wifi
-version: 1.0
+Version: 1.0
 Section: custom
 Priority: optional
-Architecture: all
+Architecture: amd64
 Maintainer: Jax <ming.li@fftai.com>
 Depends: hostapd, dnsmasq
 Description: open hotspot for clients to connect to the same network segment as the robot.
