@@ -34,4 +34,10 @@ make
 make install
 cp -r librbdl.* /usr/bin/
 
+
+cd $WORK_PATH/portaudio
+make
+make install
+
+
 ldconfig
